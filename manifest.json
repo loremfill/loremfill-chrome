@@ -1,0 +1,33 @@
+{
+    "background": {
+        "persistent": false,
+        "scripts": [
+            "listener.js",
+            "jquery-1.11.3.min.js"
+        ]
+    },
+    "browser_action": {
+        "default_icon": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "jquery-1.11.3.min.js",
+                "underscore-min.js",
+                "string.js",
+                "chance.min.js",
+                "filler.js"
+            ],
+            "matches": [
+                "*://*/*"
+            ]
+        }
+    ],
+    "description": "Fill random test data into forms",
+    "manifest_version": 2,
+    "name": "LoremFill",
+    "permissions": [
+        "activeTab"
+    ],
+    "version": "0.1"
+}
