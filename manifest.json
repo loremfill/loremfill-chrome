@@ -2,8 +2,7 @@
     "background": {
         "persistent": false,
         "scripts": [
-            "listener.js",
-            "jquery-1.11.3.min.js"
+            "listener.js"
         ]
     },
     "browser_action": {
@@ -12,11 +11,13 @@
     "content_scripts": [
         {
             "js": [
-                "jquery-1.11.3.min.js",
-                "underscore-min.js",
-                "string.js",
-                "chance.min.js",
-                "filler.js"
+                "js/libs/jquery-1.11.3.min.js",
+                "js/libs/underscore-min.js",
+                "js/libs/string.js",
+                "js/libs/chance.min.js",
+                "js/value-decider.js",
+                "js/strategies.js",
+                "js/filler.js"
             ],
             "matches": [
                 "*://*/*"
