@@ -19,7 +19,7 @@ var ValueDecider = {
                 domain: 'test.host'
             });
         }
-        if (attr.match(/city/i)) {
+        if (attr.match(/city/i) || attr.match(/location/i)) {
             value = chance.city();
         }
         if (attr.match(/zip/i)) {
