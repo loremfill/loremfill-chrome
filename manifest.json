@@ -16,6 +16,7 @@
                 "js/libs/string.js",
                 "js/libs/chance.min.js",
                 "js/value-decider.js",
+                "js/option-decider.js",
                 "js/strategies.js",
                 "js/filler.js"
             ],

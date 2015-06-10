@@ -15,6 +15,20 @@ var ClassAttributeStrategy = {
 var TypeAttributeStrategy = {
     execute: function(input) {
         var type = input.attr('type');
+        if (input[0].tagName.toUpperCase() === 'SELECT') {
+            type = input[0].tagName;
+        }
+        if (input[0].tagName.toUpperCase() === 'TEXTAREA') {
+            type = input[0].tagName;
+        }
+        switch (type.toLowerCase()) {
+            case 'select':
+                return SelectOptionDecider.decide(input);
+            case 'text':
+            case 'textarea':
+            default:
+                return null;
+        }
         if (type && (type === 'text' || type === 'textarea')) {
             return null;
         }
