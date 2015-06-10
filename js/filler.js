@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, callback) {
     }
 });
 
-var strategies = [NameAttributeStrategy, ClassAttributeStrategy];
+var strategies = [TypeAttributeStrategy, NameAttributeStrategy, ClassAttributeStrategy, LabelAttributeStrategy, PlaceholderAttributeStrategy];
 function decide(input) {
     var value;
     for(var i=0; i<strategies.length; i++) {
