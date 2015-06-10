@@ -23,5 +23,5 @@ function decide(input) {
         }
     }
     return value ? value : chance.sentence();
-}
+};
 

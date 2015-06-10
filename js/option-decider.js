@@ -6,4 +6,4 @@ var SelectOptionDecider = {
         });
         return chance.pick(values);
     }
-}
+};

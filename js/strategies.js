@@ -45,11 +45,11 @@ var LabelAttributeStrategy = {
         }
         return null;
     }
-}
+};
 
 var PlaceholderAttributeStrategy = {
     execute: function(input) {
         var type = input.attr('placeholder');
         return type ? ValueDecider.decide(type) : null;
     }
-}
+};
