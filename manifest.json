@@ -1,4 +1,5 @@
 {
+    "author": "42i Technologies",
     "background": {
         "persistent": false,
         "scripts": [
@@ -6,7 +7,7 @@
         ]
     },
     "browser_action": {
-        "default_icon": "icon.png"
+        "default_icon": "icons/icon48.png"
     },
     "content_scripts": [
         {
@@ -25,16 +26,18 @@
             ]
         }
     ],
-    "description": "Fill random test data into forms",
+    "description": "Fill context specific random test data into forms",
     "icons": {
-        "128": "icon.png",
-        "16": "icon.png",
-        "48": "icon.png"
+        "128": "icons/icon144.png",
+        "16": "icons/icon48.png",
+        "48": "icons/icon48.png"
     },
     "manifest_version": 2,
-    "name": "LoremFill",
+    "name": "Lorem Fill",
+    "offline_enabled": true,
     "permissions": [
         "activeTab"
     ],
+    "short_name": "LoremFill",
     "version": "0.1"
 }
