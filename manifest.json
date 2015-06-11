@@ -7,7 +7,7 @@
         ]
     },
     "browser_action": {
-        "default_icon": "icons/icon48.png"
+        "default_icon": "icons/logo.png"
     },
     "content_scripts": [
         {
@@ -28,9 +28,9 @@
     ],
     "description": "Fill context specific random test data into forms",
     "icons": {
-        "128": "icons/icon144.png",
-        "16": "icons/icon48.png",
-        "48": "icons/icon48.png"
+        "128": "icons/logo.png",
+        "16": "icons/logo.png",
+        "48": "icons/logo.png"
     },
     "manifest_version": 2,
     "name": "Lorem Fill",
