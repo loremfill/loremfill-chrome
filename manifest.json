@@ -1,5 +1,5 @@
 {
-    "author": "42i Technologies",
+    "author": "42!",
     "background": {
         "persistent": false,
         "scripts": [
@@ -39,5 +39,5 @@
         "activeTab"
     ],
     "short_name": "LoremFill",
-    "version": "0.2"
+    "version": "0.3"
 }
