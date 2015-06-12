@@ -9,7 +9,7 @@ var ValueDecider = {
             }
         }
     }
-}
+};
 
 var SelectOptionDecider = {
     decide: function(input) {
@@ -19,4 +19,4 @@ var SelectOptionDecider = {
         });
         return chance.pick(values);
     }
-}
+};
