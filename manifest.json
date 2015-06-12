@@ -3,7 +3,7 @@
     "background": {
         "persistent": false,
         "scripts": [
-            "listener.js"
+            "background.js"
         ]
     },
     "browser_action": {
@@ -16,6 +16,7 @@
                 "js/libs/underscore-min.js",
                 "js/libs/string.js",
                 "js/libs/chance.min.js",
+                "js/listeners.js",
                 "js/matchers.js",
                 "js/value-decider.js",
                 "js/strategies.js",
@@ -36,7 +37,8 @@
     "name": "Lorem Fill",
     "offline_enabled": true,
     "permissions": [
-        "activeTab"
+        "activeTab",
+        "contextMenus"
     ],
     "short_name": "LoremFill",
     "version": "0.3"
