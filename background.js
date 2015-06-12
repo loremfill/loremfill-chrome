@@ -25,8 +25,6 @@ chrome.contextMenus.onClicked.addListener(function(info, tab) {
     if (info.menuItemId === "context_menu_lorem_fill_this_element") {
         chrome.tabs.sendMessage(tab.id, {
             text: "fill_single_element"
-        }, function() {
-            contextElement = null;
-        });
+        }, function() {});
     }
 });
