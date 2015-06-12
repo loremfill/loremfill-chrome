@@ -1,5 +1,5 @@
 var NameMatcher = function(attr) {
-	var value = null;
+	var value = undefined;
 	if (attr.match(/name/gi)) {
 		value = chance.name();
 	}
@@ -13,102 +13,92 @@ var NameMatcher = function(attr) {
 }
 
 var UserNameMatcher = function(attr) {
-	var value = null;
-	if (attr.match(/user/i) && attr.match(/name/i)) {
-        value = chance.word();
+	if (attr.match(/user/gi) && attr.match(/name/gi)) {
+        return chance.word();
     }
-    return value;
 }
 
 var EmailMatcher = function(attr) {
-	var value = null;
-	if (attr === 'email' || attr.match(/email/i)) {
+	if (attr === 'email' || attr.match(/email/gi)) {
 		var domain = chance.pick(['host.test', 'host.local', 'host.invalid', 'example.com']);
-		value = chance.email({
+		return chance.email({
 			domain: domain
 		});	
 	}
-	return value;
 }
 
 var CityMatcher = function(attr) {
-	var value = null;
-	if (attr.match(/city/i) || attr.match(/location/i)) {
-	    value = chance.city();
+	if (attr.match(/city/gi) || attr.match(/location/gi)) {
+	    return chance.city();
 	}
-	return value;
 }
 
 var ZipMatcher = function(attr) {
-	var value = null;
-	if (attr.match(/zip/i)) {
-        value = chance.zip();
+	if (attr.match(/zip/gi)) {
+        return chance.zip();
     }
-    return value;
 }
 
 var AddressMatcher = function(attr) {
-	var value = null;
-	if (attr.match(/address/i)) {
-        value = chance.address();
+	if (attr.match(/address/gi)) {
+        return chance.address();
     }
-    return value;
 }
 
 var PhoneMatcher = function(attr) {
-	var value = null;
-	if (attr === 'tel' || attr.match(/phone/i) || attr.match(/mobile/i)) {
-        value = chance.phone();
+	if (attr === 'tel' || attr.match(/phone/gi) || attr.match(/mobile/gi)) {
+        return chance.phone();
     }
-    return value;
 }
 
 var UrlMatcher = function(attr) {
-	var value = null;
-	if (attr === 'url' || attr.match(/web/i) || attr.match(/url/i)) {
-        value = chance.domain();
+	if (attr === 'url' || attr.match(/web/gi) || attr.match(/url/gi)) {
+        return chance.domain();
     }
-    return value;
 }
 
 var PasswordMatcher = function(attr) {
-	var value = null;
-	if (attr.match(/password/i)) {
-        value = "p@ssw0rd";
+	if (attr.match(/password/gi)) {
+        return "p@ssw0rd";
     }
-    return value;
 }
 
 var AmountMatcher = function(attr) {
-	var value = null;
-	if (attr.match(/price/i) || attr.match(/amount/i)) {
-        value = chance.floating({
+	if (attr.match(/price/gi) || attr.match(/amount/gi)) {
+        return chance.floating({
             fixed: 2,
             min: 1,
             max: 999
         })
     }
-    return value;
 }
 
 var NumberMatcher = function(attr) {
-	var value = null;
-	if (attr === 'number' || attr.match(/duration/i) || attr.match(/min/i) || attr.match(/count/i) || attr.match(/capacity/i)) {
-        value = chance.integer({
+	if (attr === 'number' || attr.match(/duration/gi) || attr.match(/min/gi) || attr.match(/count/gi) || attr.match(/capacity/gi)) {
+        return chance.integer({
             min: 1,
             max: 100
         })
     }
-    return value;
 }
 
 var RangeMatcher = function(attr) {
-	var value = null;
-	if (attr.match(/max/i)) {
-        value = chance.integer({
+	if (attr.match(/max/gi)) {
+        return chance.integer({
             min: 101,
             max: 999
         })
     }
-    return value;
+}
+
+var CompanyMatcher = function(attr) {
+	if (attr.match(/company/gi) || attr.match(/business/gi)) {
+		return S(chance.word()).capitalize().s + " Inc.";
+	}
+}
+
+var CaptchaMatcher = function(attr) {
+	if (attr.match(/captcha/gi)) {
+		return SKIP_CONTROL;
+	}
 }

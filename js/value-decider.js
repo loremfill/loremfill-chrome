@@ -1,6 +1,6 @@
 var ValueDecider = {
     decide: function(attr) {
-        var matchers = [NameMatcher, UserNameMatcher, EmailMatcher, CityMatcher, ZipMatcher, AddressMatcher, PhoneMatcher, UrlMatcher, PasswordMatcher, AmountMatcher, NumberMatcher, RangeMatcher];
+        var matchers = [NameMatcher, UserNameMatcher, EmailMatcher, CityMatcher, ZipMatcher, AddressMatcher, PhoneMatcher, UrlMatcher, PasswordMatcher, AmountMatcher, NumberMatcher, RangeMatcher, CompanyMatcher, CaptchaMatcher];
         for (var i=0; i < matchers.length; i++) {
             var matcher = matchers[i];
             var value = matcher.call(this, attr.humanize().s);
@@ -8,7 +8,6 @@ var ValueDecider = {
                 return value;
             }
         }
-        return null;
     }
 }
 

@@ -1,3 +1,4 @@
+var SKIP_CONTROL = '__SKIP_CONTROL__';
 chrome.runtime.onMessage.addListener(function(msg, sender, callback) {
     if (msg.text && msg.text === 'fill_all_forms') {
         S.extendPrototype();
@@ -6,7 +7,9 @@ chrome.runtime.onMessage.addListener(function(msg, sender, callback) {
             input = jQuery(input)
             if (input.is(":visible") && !input.is("[readonly]")) {
                 var value = decide(input);
-                input.val(value);
+                if (value !== SKIP_CONTROL) {
+                    input.val(value);
+                }
             }
         });
     }
@@ -18,10 +21,10 @@ function decide(input) {
     for(var i=0; i<strategies.length; i++) {
         var strategy = strategies[i];
         value = strategy.execute(input);
-        if (value && value != null) {
-            break;
+        if (value) {
+            return value;
         }
     }
-    return value ? value : chance.sentence();
+    return chance.sentence();
 };
 
