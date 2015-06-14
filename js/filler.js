@@ -39,4 +39,3 @@ function decide(input) {
     }
     return chance.sentence();
 }
-
