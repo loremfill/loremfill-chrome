@@ -10,18 +10,16 @@ function send_fill_single_element(tab) {
     }, function() {});
 };
 
-chrome.runtime.onInstalled.addListener(function() {
-    chrome.contextMenus.create({
-        id: "context_menu_lorem_fill_this_page",
-        title: "Lorem Fill this page ⌘⇧1",
-        contexts: ["page"]
-    });
+chrome.contextMenus.create({
+    id: "context_menu_lorem_fill_this_page",
+    title: "Lorem Fill this page ⌘⇧1",
+    contexts: ["page"]
+});
 
-    chrome.contextMenus.create({
-        id: "context_menu_lorem_fill_this_element",
-        title: "Lorem Fill this single element",
-        contexts: ["editable"]
-    });
+chrome.contextMenus.create({
+    id: "context_menu_lorem_fill_this_element",
+    title: "Lorem Fill this single element",
+    contexts: ["editable"]
 });
 
 chrome.browserAction.onClicked.addListener(send_fill_all_forms);
