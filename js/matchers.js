@@ -69,7 +69,7 @@ var AmountMatcher = function(attr) {
             fixed: 2,
             min: 1,
             max: 999
-        })
+        });
     }
 }
 
@@ -78,7 +78,7 @@ var NumberMatcher = function(attr) {
         return chance.integer({
             min: 1,
             max: 100
-        })
+        });
     }
 }
 
@@ -87,7 +87,7 @@ var RangeMatcher = function(attr) {
         return chance.integer({
             min: 101,
             max: 999
-        })
+        });
     }
 }
 
@@ -100,5 +100,23 @@ var CompanyMatcher = function(attr) {
 var CaptchaMatcher = function(attr) {
     if (attr.match(/captcha/gi)) {
         return SKIP_CONTROL;
+    }
+}
+
+var LengthMatcher = function(attr) {
+    if (attr.match(/height/gi) || attr.match(/length/gi)) {
+        return chance.integer({
+            min: 4,
+            max: 10
+        });
+    }
+}
+
+var WeightMatcher = function(attr) {
+    if (attr.match(/weight/gi) || attr.match(/pounds/gi) || attr.match(/lbs/gi) || attr.match(/kg/gi)) {
+        return chance.integer({
+            min: 75,
+            max: 200
+        });
     }
 }
