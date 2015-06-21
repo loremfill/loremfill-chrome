@@ -9,7 +9,10 @@ var Store = {
 
     refresh: function(callback) {
         var self = this;
-        chrome.storage.sync.get(null, function(item) {
+        var query = {};
+        query['password'] = Defaults.password;
+        query['domains'] = Defaults.domains;
+        chrome.storage.sync.get(query, function(item) {
             self.password = item.password;
             self.domains = item.domains;
             if(callback) {
