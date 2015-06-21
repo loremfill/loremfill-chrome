@@ -1,8 +1,3 @@
-var Defaults = {
-    password: 'p@ssw0rd',
-    domains: 'host.test, host.local, host.invalid, example.com'
-};
-
 jQuery(document).ready(function() {
     fill_options();
     jQuery("[data-content]").popup();
@@ -24,8 +19,8 @@ function save_options() {
 }
 
 function fill_options() {
-    var password = jQuery("input[name='password']");
-    Store.get('password', Defaults.password, password);
-    var domains = jQuery("input[name='domains']");
-    Store.get('domains', Defaults.domains, domains);
+    Store.refresh(function() {
+        jQuery("input[name='password']").val(Store.password);
+        jQuery("input[name='domains']").val(Store.domains);
+    });
 }

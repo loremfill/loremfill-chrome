@@ -20,7 +20,8 @@ var UserNameMatcher = function(attr) {
 
 var EmailMatcher = function(attr) {
     if (attr === 'email' || attr.match(/email/gi)) {
-        var domain = chance.pick(['host.test', 'host.local', 'host.invalid', 'example.com']);
+        var domains = S(Store.domains).parseCSV(',', "'");
+        var domain = chance.pick(domains);
         return chance.email({
             domain: domain
         });
@@ -59,7 +60,7 @@ var UrlMatcher = function(attr) {
 
 var PasswordMatcher = function(attr) {
     if (attr.match(/password/gi)) {
-        return "p@ssw0rd";
+        return Store.password;
     }
 }
 
