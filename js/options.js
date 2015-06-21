@@ -10,7 +10,6 @@ jQuery(document).ready(function() {
     jQuery(".reset.button").click(function() {
         jQuery("input[name='password']").val(Defaults.password);
         jQuery("input[name='domains']").val(Defaults.domains);
-        save_options();
     });
 });
 
