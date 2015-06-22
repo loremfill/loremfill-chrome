@@ -15,24 +15,21 @@ var ClassAttributeStrategy = {
 var TypeAttributeStrategy = {
     execute: function(input) {
         var type = input.attr('type');
-        if (input[0].tagName.toUpperCase() === 'SELECT') {
-            type = input[0].tagName;
+        if (input[0].tagName.toLowerCase() === 'select') {
+            type = input[0].tagName.toLowerCase();
         }
-        if (input[0].tagName.toUpperCase() === 'TEXTAREA') {
-            type = input[0].tagName;
+        if (input[0].tagName.toLowerCase() === 'textarea') {
+            type = input[0].tagName.toLowerCase();
         }
-        switch (type.toLowerCase()) {
-            case 'select':
-                return SelectOptionDecider.decide(input);
-            case 'text':
-            case 'textarea':
-            default:
-                return null;
+        type = type && type.toLowerCase();
+        if (type === 'select') {
+            return SelectOptionDecider.decide(input);
         }
-        if (type && (type === 'text' || type === 'textarea')) {
+        if (type === 'text' || type === 'textarea') {
             return null;
+        } else {
+            return ValueDecider.decide(type);
         }
-        return type ? ValueDecider.decide(type) : null;
     }
 };
 
