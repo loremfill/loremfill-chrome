@@ -38,8 +38,11 @@ chrome.commands.onCommand.addListener(function(command) {
         chrome.tabs.query({
             active: true
         }, function(tabs) {
-            if (tabs.length && tabs[0]) {
-                send_fill_all_forms(tabs[0]);
+            if (tabs.length) {
+                for(var i=0; i<tabs.length; i++) {
+                    var tab = tabs[i];
+                    send_fill_all_forms(tab);
+                }
             }
         });
     }

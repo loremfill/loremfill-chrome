@@ -50,3 +50,10 @@ var PlaceholderAttributeStrategy = {
         return type ? ValueDecider.decide(type) : null;
     }
 };
+
+var AngularModelStrategy = {
+    execute: function(input) {
+        var ng_model = input.attr('ng-model');
+        return ng_model ? ValueDecider.decide(ng_model) : null;
+    }
+}
