@@ -3,7 +3,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, callback) {
     Store.refresh();
     S.extendPrototype();
     if (msg.text && msg.text === 'fill_all_forms') {
-        var inputs = jQuery(document).find("input[type='text'], input[type='password'], input[type='email'], input[type='number'], input[type='tel'], textarea, select");
+        var inputs = jQuery(document).find("input[type='text'], input[type='password'], input[type='email'], input[type='number'], input[type='tel'], input[type='url'], textarea, select");
         inputs.each(function(j, input) {
             input = jQuery(input);
             if (input.is(":visible") && !input.is("[readonly]")) {
