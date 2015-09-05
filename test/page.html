@@ -8,7 +8,6 @@
     </style>
 </head>
 <body>
-    
     First Name: <input type="text" name="first_name" id="first_name" placeholder="Enter first name">
     Full Name: <input type="text" name="full-name" id="full_name" placeholder="Enter full name">
     Number: <input id="listMetrics0.value" name="listMetrics[0].value" placeholder="number" class="input" type="number" value="">
@@ -25,6 +24,8 @@
         <option value="c">US</option>
     </select>
     Random: <input type="text" name="random-text">
+    Card: <input type="number" name="cardnumber">
+    Card: <input type="text" name="cc" placeholder="Enter card number">
     <div id="onchange">No change event invoked</div>
 </body>
 <script type="text/javascript">
@@ -32,7 +33,8 @@ $(document).ready(function() {
     var inputChangeEvent = 0;
     $("input, select").on('change', function() {
         inputChangeEvent++;
-        $("#onchange").text("Change event on input & select elements = " + inputChangeEvent);
+        var numberOfControls = $("input, select").size();
+        $("#onchange").text("[Total elements " + numberOfControls + "] Change event on input & select elements = " + inputChangeEvent);
     });
 });
 </script>

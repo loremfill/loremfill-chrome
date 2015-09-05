@@ -121,3 +121,9 @@ var WeightMatcher = function(attr) {
         });
     }
 }
+
+var CCMatcher = function(attr) {
+    if (attr.match(/cc/gi) || attr.match(/card/gi) || attr.match(/debit/gi) || attr.match(/credit/gi)) {
+        return chance.cc({type: 'Visa'});
+    }
+}

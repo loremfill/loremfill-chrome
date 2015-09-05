@@ -1,5 +1,12 @@
 var NameAttributeStrategy = {
     execute: function(input) {
+        var type = input.attr('type');
+        if (input[0].tagName.toLowerCase() === 'select') {
+            type = input[0].tagName.toLowerCase();
+        }
+        if (type === 'select') {
+            return SelectOptionDecider.decide(input);
+        }
         var attr = input.attr('name');
         return attr ? ValueDecider.decide(attr) : null;
     }
