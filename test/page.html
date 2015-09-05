@@ -1,14 +1,39 @@
 <html>
 <head>
+    <script src="../js/libs/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css" media="screen">
+        input, select {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" name="first_name" id="first_name" placeholder="Enter first name">
-    <input type="text" name="full-name" id="full_name" placeholder="Enter full name">
-    <input id="listMetrics0.value" name="listMetrics[0].value" placeholder="#" class="input" type="number" value="">
-    <input type="text" ng-model="email">
-    <input type="url" name="domain">
-    <input type="number" name="quantity">
-    <input type="text" placeholder="enter length">
-    <input type="email" name="random">
+    
+    First Name: <input type="text" name="first_name" id="first_name" placeholder="Enter first name">
+    Full Name: <input type="text" name="full-name" id="full_name" placeholder="Enter full name">
+    <input id="listMetrics0.value" name="listMetrics[0].value" placeholder="number" class="input" type="number" value="">
+    Email: <input type="text" ng-model="email">
+    Domain: <input type="url" name="domain">
+    Quantity: <input type="number" name="quantity">
+    Length: <input type="text" placeholder="enter length">
+    Email: <input type="email" name="random">
+    Password: <input type="password" name="password">
+    Email: <input type="text" name="email-address">
+    Select: <select name="country">
+        <option value="a">India</option>
+        <option value="b">Canada</option>
+        <option value="c">US</option>
+    </select>
+    Random: <input type="text" name="random-text">
+    <div id="onchange">No change event invoked</div>
 </body>
+<script type="text/javascript">
+$(document).ready(function() {
+    var inputChangeEvent = 0;
+    $("input, select").on('change', function() {
+        inputChangeEvent++;
+        $("#onchange").text("Change event on input & select elements = " + inputChangeEvent);
+    });
+});
+</script>
 </html>
