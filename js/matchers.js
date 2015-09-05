@@ -127,3 +127,9 @@ var CCMatcher = function(attr) {
         return chance.cc({type: 'Visa'});
     }
 }
+
+var CVVMatcher = function(attr) {
+    if (attr.match(/cvv/gi) || attr.match(/cvv2/gi)) {
+        return "123";
+    }
+}

@@ -37,7 +37,7 @@ function populateValue(input, value) {
 
 function decide(input) {
     var value;
-    var strategies = [NameAttributeStrategy, TypeAttributeStrategy, ClassAttributeStrategy, LabelAttributeStrategy, PlaceholderAttributeStrategy, AngularModelStrategy];
+    var strategies = [NameAttributeStrategy, ClassAttributeStrategy, LabelAttributeStrategy, PlaceholderAttributeStrategy, AngularModelStrategy, TypeAttributeStrategy];
     for(var i=0; i<strategies.length; i++) {
         var strategy = strategies[i];
         value = strategy.execute(input);

@@ -1,46 +1,71 @@
-var NameAttributeStrategy = {
-    execute: function(input) {
+var AttributeStrategy = {
+    supports: function(input) {
+        return true;
+    }
+};
+
+var NameAttributeStrategy = $.extend({}, AttributeStrategy, {
+    supports: function(input) {
         var type = input.attr('type');
         if (input[0].tagName.toLowerCase() === 'select') {
             type = input[0].tagName.toLowerCase();
         }
         if (type === 'select') {
-            return SelectOptionDecider.decide(input);
+            return false;
         }
-        var attr = input.attr('name');
-        return attr ? ValueDecider.decide(attr) : null;
-    }
-};
-
-var ClassAttributeStrategy = {
+        return true;
+    },
+    
     execute: function(input) {
-        var attr = input.attr('class');
-        return attr ? ValueDecider.decide(attr) : null;
+        if (this.supports(input)) {
+            var attr = input.attr('name');
+            return attr ? ValueDecider.decide(attr) : null;    
+        }
     }
-};
+});
 
-var TypeAttributeStrategy = {
+var ClassAttributeStrategy = $.extend({}, AttributeStrategy, {
     execute: function(input) {
+        if (this.supports(input)) {
+            var attr = input.attr('class');
+            return attr ? ValueDecider.decide(attr) : null;
+        }
+    }
+});
+
+var TypeAttributeStrategy = $.extend({}, AttributeStrategy, {
+    supports: function(input) {
         var type = input.attr('type');
         if (input[0].tagName.toLowerCase() === 'select') {
             type = input[0].tagName.toLowerCase();
         }
-        if (input[0].tagName.toLowerCase() === 'textarea') {
-            type = input[0].tagName.toLowerCase();
+        if (type === 'select' || type === 'text' || type === 'textarea') {
+            return false;
         }
-        type = type && type.toLowerCase();
-        if (type === 'select') {
-            return SelectOptionDecider.decide(input);
-        }
-        if (type === 'text' || type === 'textarea') {
-            return null;
-        } else {
+        return true;
+    },
+    
+    execute: function(input) {
+        var type = input.attr('type');
+        if (this.supports(input)) {
             return ValueDecider.decide(type);
+        } else {
+            if (input[0].tagName.toLowerCase() === 'select') {
+                type = input[0].tagName.toLowerCase();
+            }
+            if (input[0].tagName.toLowerCase() === 'textarea') {
+                type = input[0].tagName.toLowerCase();
+            }
+            type = type && type.toLowerCase();
+            if (type === 'select') {
+                return SelectOptionDecider.decide(input);
+            }
+            return null;
         }
     }
-};
+});
 
-var LabelAttributeStrategy = {
+var LabelAttributeStrategy = $.extend({}, AttributeStrategy, {
     execute: function(input) {
         var id = input.attr('id');
         if (id) {
@@ -49,18 +74,18 @@ var LabelAttributeStrategy = {
         }
         return null;
     }
-};
+});
 
-var PlaceholderAttributeStrategy = {
+var PlaceholderAttributeStrategy = $.extend({}, AttributeStrategy, {
     execute: function(input) {
         var type = input.attr('placeholder');
         return type ? ValueDecider.decide(type) : null;
     }
-};
+});
 
-var AngularModelStrategy = {
+var AngularModelStrategy = $.extend({}, AttributeStrategy, {
     execute: function(input) {
         var ng_model = input.attr('ng-model');
         return ng_model ? ValueDecider.decide(ng_model) : null;
     }
-}
+});
