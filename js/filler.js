@@ -9,7 +9,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, callback) {
             if (input.is(":visible") && !input.is("[readonly]")) {
                 var value = decide(input);
                 if (value !== SKIP_CONTROL) {
-                    input.val(value);
+                    populateValue(input, value);
                 }
             }
         });
@@ -19,7 +19,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, callback) {
             contextElement = jQuery(contextElement);
             var value = decide(contextElement);
             if (value !== SKIP_CONTROL) {
-                contextElement.val(value);
+                populateValue(contextElement, value);
             }
         }
         if (callback) {
@@ -27,6 +27,13 @@ chrome.runtime.onMessage.addListener(function(msg, sender, callback) {
         }
     }
 });
+
+function populateValue(input, value) {
+    input.val(value);
+    var changeEvent = document.createEvent('Event');
+    changeEvent.initEvent('change', true, true);
+    input.get(0).dispatchEvent(changeEvent);
+}
 
 function decide(input) {
     var value;
