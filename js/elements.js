@@ -31,8 +31,11 @@ var Elements = Backbone.Model.extend({
     },
 
     populateValue: function(element, value) {
-        var message = "[loremfill] {{tagName}}[{{name}}] = {{value}}";
+        var message = "[loremfill][{{time}}] {{tagName}}[{{name}}] = {{value}}";
+        var now = new Date();
+        var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
         var template_values = {
+            time: time,
             tagName: element.get(0).tagName,
             name: element.attr('name'),
             value: value
