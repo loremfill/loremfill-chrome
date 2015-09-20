@@ -45,7 +45,7 @@
             ]
         }
     ],
-    "description": "Fill context specific random test data into forms",
+    "description": "A webpage form filler that populates context specific random test data into forms elements.",
     "icons": {
         "128": "icons/logo.png",
         "16": "icons/logo.png",
