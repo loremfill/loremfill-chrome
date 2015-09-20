@@ -35,15 +35,8 @@ chrome.contextMenus.onClicked.addListener(function(info, tab) {
 
 chrome.commands.onCommand.addListener(function(command) {
     if (command === 'trigger_fill_all_forms') {
-        chrome.tabs.query({
-            active: true
-        }, function(tabs) {
-            if (tabs.length) {
-                for(var i=0; i<tabs.length; i++) {
-                    var tab = tabs[i];
-                    send_fill_all_forms(tab);
-                }
-            }
-        });
+        chrome.tabs.getSelected(function(tab){
+            send_fill_all_forms(tab);
+        })
     }
 });
