@@ -29,7 +29,6 @@
                 "js/libs/semantic.min.js",
                 "js/options.js",
                 "js/store.js",
-                "js/listeners.js",
                 "js/element.js",
                 "js/elements.js",
                 "js/filler.js",
