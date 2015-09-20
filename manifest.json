@@ -23,6 +23,7 @@
             "js": [
                 "js/libs/jquery-1.11.3.min.js",
                 "js/libs/underscore-min.js",
+                "js/libs/backbone-min.js",
                 "js/libs/string.js",
                 "js/libs/chance.min.js",
                 "js/libs/semantic.min.js",
