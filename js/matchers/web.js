@@ -25,7 +25,6 @@ var PasswordMatcher = Backbone.Model.extend({
         return attr && attr.match(/password/gi);
     },
     value: function() {
-        console.debug("[loremfill] Filling password " + Store.password);
         return Store.password;
     }
 });
