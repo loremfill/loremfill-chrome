@@ -1,6 +1,6 @@
 var CompanyMatcher = Backbone.Model.extend({
     supports: function(attr) {
-        return attr && (attr.match(/company/gi) || attr.match(/business/gi));
+        return attr && (attr.match(/company/gi) || attr.match(/business/gi) || attr.match(/organization/gi));
     },
     value: function() {
         return S(chance.word()).capitalize().s + " Inc.";
