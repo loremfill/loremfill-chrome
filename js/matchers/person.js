@@ -1,6 +1,9 @@
 var FullNameMatcher = Backbone.Model.extend({
     supports: function(attr) {
-        return attr && attr.match(/name/gi);
+        return attr && attr.match(/name/gi) && !(
+            FirstNameMatcher.prototype.supports(attr) ||
+            LastNameMatcher.prototype.supports(attr)
+        );
     },
     value: function() {
         return chance.name();
