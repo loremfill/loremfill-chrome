@@ -17,6 +17,9 @@ var CCMatcher = Backbone.Model.extend({
         attr.match(/debit/gi) || attr.match(/credit/gi));
     },
     value: function() {
+        if(Store.cc) {
+            return Store.cc;
+        }
         return chance.cc({
             type: 'Visa'
         });

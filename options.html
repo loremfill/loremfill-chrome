@@ -22,7 +22,7 @@
         <p/>
         <div class="ui two column centered grid">
             <div class="column">
-                <div class="ui teal header">
+                <div class="ui red header">
                     <i class="settings icon"></i>
                     <div class="content">Lorem Fill</div>
                 </div>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="ui raised segment">
-                    <span class="ui ribbon teal label">Settings</span>
+                    <span class="ui ribbon red label">Settings</span>
                     <p/>
                     <form class="ui form">
                         <div class="field" data-content="Fill this value in password fields">
@@ -49,7 +49,14 @@
                                 <i class="mail icon"></i>
                             </div>
                         </div>
-                        <div class="ui center submit teal button">Submit</div>
+                        <div class="field" data-content="Leave blank to generate random VISA card numbers">
+                            <label>CC number (will not generate)</label>
+                            <div class="ui left icon input">
+                                <input type="text" name="cc" placeholder="Leave blank to generate random VISA card numbers">
+                                <i class="cc icon"></i>
+                            </div>
+                        </div>
+                        <div class="ui center submit red button">Submit</div>
                         <div class="ui center basic reset button">Reset defaults</div>
                     </form>
                 </div>

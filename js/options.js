@@ -5,15 +5,18 @@ jQuery(document).ready(function() {
     jQuery("#EnDLrDcjbUyKCvVThsPMuGfskEDFcK2fvBAJTDEUBvmee2AKC .reset.button").click(function() {
         get_option_element('password').val(Defaults.password);
         get_option_element('domains').val(Defaults.domains);
+        get_option_element('cc').val(Defaults.cc);
     });
 });
 
 function save_options() {
     var password = get_option_element('password').val();
     var domains = get_option_element('domains').val();
+    var cc = get_option_element('cc').val();
     var payload = {
         password: password,
-        domains: domains
+        domains: domains,
+        cc: cc
     }
     Store.set(payload, true);
 }
@@ -22,6 +25,7 @@ function fill_options() {
     Store.refresh(function() {
         get_option_element('password').val(Store.password);
         get_option_element('domains').val(Store.domains);
+        get_option_element('cc').val(Store.cc);
     });
 }
 
