@@ -1,5 +1,8 @@
 var TextStrategy = Backbone.Model.extend({
     strategies: {
+        id: function(element) {
+            return element.attr('id');
+        },
         name: function(element) {
             return element.attr('name');
         },
