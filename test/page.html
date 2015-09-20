@@ -32,14 +32,20 @@
     CVV: <input type="text" name="cvv" placeholder="CVV/CVV2">
     CVV2: <input type="number" name="cvv2" placeholder="CVV2">
     <div id="onchange">No change event invoked</div>
+    <div id="onblur">No blur event invoked</div>
 </body>
 <script type="text/javascript">
 $(document).ready(function() {
-    var inputChangeEvent = 0;
+    var inputChangeEvent = 0, inputBlurEvent = 0;
     $("input, select").on('change', function() {
         inputChangeEvent++;
         var numberOfControls = $("input, select").size();
         $("#onchange").text("[Total elements " + numberOfControls + "] Change event on input & select elements = " + inputChangeEvent);
+    });
+    $("input, select").on('blur', function() {
+        inputBlurEvent++;
+        var numberOfControls = $("input, select").size();
+        $("#onblur").text("[Total elements " + numberOfControls + "] Blur event on input & select elements = " + inputBlurEvent);
     });
 });
 </script>

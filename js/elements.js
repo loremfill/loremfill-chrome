@@ -42,9 +42,14 @@ var Elements = Backbone.Model.extend({
         };
         console.debug(S(message).template(template_values).s);
         element.val(value);
+        this.fireEvent(element.get(0), 'change');
+        this.fireEvent(element.get(0), 'blur');
+    },
+
+    fireEvent: function(element, event) {
         var changeEvent = document.createEvent('Event');
-        changeEvent.initEvent('change', true, true);
-        element.get(0).dispatchEvent(changeEvent);
+        changeEvent.initEvent(event, true, true);
+        element.dispatchEvent(changeEvent);
     },
 
     available: function(element) {
