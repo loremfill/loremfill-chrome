@@ -38,7 +38,7 @@ var TextStrategy = Backbone.Model.extend({
                 }
             }
         }
-        return chance.sentence();
+        return chance.word();
     }
 });
 
