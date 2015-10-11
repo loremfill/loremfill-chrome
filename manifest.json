@@ -7,7 +7,7 @@
         ]
     },
     "browser_action": {
-        "default_icon": "icons/logo.png"
+        "default_icon": "icons/icon128.png"
     },
     "commands": {
         "trigger_fill_all_forms": {
@@ -47,9 +47,9 @@
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "description": "A webpage form filler that populates context specific random test data into forms elements.",
     "icons": {
-        "128": "icons/logo.png",
-        "16": "icons/logo.png",
-        "48": "icons/logo.png"
+        "128": "icons/icon128.png",
+        "48": "icons/icon48.png",
+        "16": "icons/icon16.png"
     },
     "incognito": "split",
     "manifest_version": 2,
