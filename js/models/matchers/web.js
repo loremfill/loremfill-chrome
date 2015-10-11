@@ -12,8 +12,7 @@ var EmailMatcher = Backbone.Model.extend({
         return attr && attr.match(/email/gi);
     },
     value: function() {
-        var allowedDomains = S(Store.domains).parseCSV(',', "'");
-        var domain = chance.pick(allowedDomains);
+        var domain = store.getRandomDomain();
         return chance.email({
             domain: domain
         });
@@ -25,7 +24,7 @@ var PasswordMatcher = Backbone.Model.extend({
         return attr && attr.match(/password/gi);
     },
     value: function() {
-        return Store.password;
+        return store.getPassword();
     }
 });
 

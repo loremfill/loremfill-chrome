@@ -1,66 +1,72 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <title>
             Lorem Fill Settings
         </title>
-        <link rel="stylesheet" href="css/semantic.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
-        <script src="js/libs/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="js/libs/semantic.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="js/store.js"></script>
-        <script src="js/options.js"></script>
-        <style type="text/css" media="screen">
-        .center {
-            text-align: center;
-        }
-        .pull-right {
-            float: right;
-        }
-        </style>
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="css/base.css" type="text/css" media="screen" title="no title" charset="utf-8">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
     </head>
-    <body id="EnDLrDcjbUyKCvVThsPMuGfskEDFcK2fvBAJTDEUBvmee2AKC">
-        <p/>
-        <div class="ui two column centered grid">
-            <div class="column">
-                <div class="ui red header">
-                    <i class="settings icon"></i>
-                    <div class="content">Lorem Fill</div>
-                </div>
-                <div class="ui success message hidden">
-                    <div class="content">
-                        <div class="header">Successful saved.</div>
-                    </div>
-                </div>
-                <div class="ui raised segment">
-                    <span class="ui ribbon red label">Settings</span>
-                    <p/>
-                    <form class="ui form">
-                        <div class="field" data-content="Fill this value in password fields">
-                            <label>Password</label>
-                            <div class="ui left icon input">
-                                <input type="text" name="password" placeholder="Password">
-                                <i class="lock icon"></i>
-                            </div>
-                        </div>
-                        <div class="field" data-content="Choose a domain from this list">
-                            <label>E-mail Domains (comma separated)</label>
-                            <div class="ui left icon input">
-                                <input type="text" name="domains">
-                                <i class="mail icon"></i>
-                            </div>
-                        </div>
-                        <div class="field" data-content="Leave blank to generate random VISA card numbers">
-                            <label>CC number (will not generate)</label>
-                            <div class="ui left icon input">
-                                <input type="text" name="cc" placeholder="Leave blank to generate random VISA card numbers">
-                                <i class="cc icon"></i>
-                            </div>
-                        </div>
-                        <div class="ui center submit red button">Submit</div>
-                        <div class="ui center basic reset button">Reset defaults</div>
-                    </form>
-                </div>
+    <body id="lorem-fill-options" class="container">
+        <div class="row">
+            <div class='col-md-12 center'>
+                <h1 class="lead">
+                    <i class="glyphicon glyphicon-tasks"></i>
+                    Lorem Fill
+                </h1>
+                <hr/>
+                <div id="options-container"></div>
             </div>
         </div>
+        
+        <script type="text/html" id="options-template">
+            <div class="alert alert-success hidden" role="alert">Saved successfully</div>
+            <h4>Settings</h4>
+            <form>
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+                        <input type="text" name="password" placeholder="Default value for password field" value="<%= password %>" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default on-reset-password" type="button">Reset</button>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>E-mail Domains (comma separated)</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="glyphicon glyphicon-send"></i></div>
+                        <input type="text" name="domains" placeholder="Leave blank to generate random domain name" value="<%= domains %>" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default on-reset-domains" type="button">Reset</button>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Credit Card numbers (comma separated)</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></div>
+                        <input type="text" name="cc" placeholder="Leave blank to generate random VISA card numbers" class="form-control" value="<%= cc %>">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default on-reset-cc" type="button">Reset</button>
+                        </span>
+                    </div>
+                </div>
+                <p>
+                    <button type="button" class="btn btn-primary submit">Submit</button>
+                </p>
+            </form>
+        </script>
+        <script src="js/libs/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/libs/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/libs/backbone-min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/libs/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/models/store.js"></script>
+        <script src="js/views/options.js"></script>
+        <script src="js/views/options.page.js"></script>
     </body>
 </html>
