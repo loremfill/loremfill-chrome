@@ -17,12 +17,12 @@
             $("input, select").on('change', function() {
                 inputChangeEvent++;
                 var numberOfControls = $("input, select").size();
-                $("#onchange").text("[Total elements " + numberOfControls + "] Change event on input & select elements = " + inputChangeEvent);
+                $("#i_onchange").text("[Total elements " + numberOfControls + "] Change event on input & select elements = " + inputChangeEvent);
             });
             $("input, select").on('blur', function() {
                 inputBlurEvent++;
                 var numberOfControls = $("input, select").size();
-                $("#onblur").text("[Total elements " + numberOfControls + "] Blur event on input & select elements = " + inputBlurEvent);
+                $("#i_onblur").text("[Total elements " + numberOfControls + "] Blur event on input & select elements = " + inputBlurEvent);
             });
         });
     </script>
@@ -51,9 +51,7 @@
     Card: <input id="cc-number" type="tel" size="20" maxlength="20" name="number" autocomplete="off" placeholder="Card number" value="">
     CVV: <input type="text" name="cvv" placeholder="CVV/CVV2">
     CVV2: <input type="number" name="cvv2" placeholder="CVV2">
-    <div id="onchange">No change event invoked</div>
-    <div id="onblur">No blur event invoked</div>
-	<h3>IFRAME</h3>
-    <iframe style="border: 1px solid #CCC;" width="100%" height="100%" frameborder="0" scrolling="yes" src="iframe.html" />
+    <div id="i_onchange">No change event invoked</div>
+    <div id="i_onblur">No blur event invoked</div>
 </body>
 </html>

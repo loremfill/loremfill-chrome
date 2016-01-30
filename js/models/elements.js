@@ -47,9 +47,17 @@ var Elements = Backbone.Model.extend({
     },
 
     fireEvent: function(element, event) {
-        var changeEvent = document.createEvent('Event');
-        changeEvent.initEvent(event, true, true);
-        element.dispatchEvent(changeEvent);
+        var changeEvent = new Event(event, {
+            view: window,
+            bubbles: true,
+            cancelable: true
+        });
+        changeEvent.target = element;
+        changeEvent.currentTarget = element;
+        var canceled = !element.dispatchEvent(changeEvent);
+        if (canceled) {
+            console.log("Event " + event + " was canceled");
+        }
     },
 
     available: function(element) {
