@@ -3,30 +3,33 @@ var Store = Backbone.Model.extend({
         return {
             password: 'p@ssw0rd',
             domains: 'host.test, host.local, host.invalid, example.com',
-            cc: ''
+            cc: '',
+            react: false
         };
     },
-    
+
     reset: function(options) {
         this.save(this.defaults(), options);
     },
-    
+
     refresh: function(callback) {
         var self = this;
         var query = {};
         query['password'] = this.defaults().password;
         query['domains'] = this.defaults().domains;
         query['cc'] = this.defaults().cc;
+        query['react'] = this.defaults().react;
         chrome.storage.sync.get(query, function(item) {
             self.set('password', item.password);
             self.set('domains', item.domains);
             self.set('cc', item.cc);
+            self.set('react', item.react);
             if(callback) {
                 callback.call(this);
             }
         });
     },
-    
+
     save: function(payload, options) {
         var self = this;
         chrome.storage.sync.set(payload, function() {
@@ -36,7 +39,7 @@ var Store = Backbone.Model.extend({
             }
         });
     },
-    
+
     getRandomCC: function() {
         var configured = this.get('cc');
         if(_.isEmpty(configured)) {
@@ -45,7 +48,7 @@ var Store = Backbone.Model.extend({
         var list = S(configured).trim().parseCSV(',', "'");
         return chance.pick(list);
     },
-    
+
     getRandomDomain: function() {
         var configured = this.get('domains');
         if(_.isEmpty(configured)) {
@@ -54,7 +57,7 @@ var Store = Backbone.Model.extend({
         var list = S(configured).trim().parseCSV(',', "'");
         return chance.pick(list);
     },
-    
+
     getPassword: function() {
         return this.get('password');
     }

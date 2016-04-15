@@ -6,6 +6,7 @@ var Elements = Backbone.Model.extend({
         'input[type="number"]',
         'input[type="tel"]',
         'input[type="url"]',
+        'input[type="phone"]',
         'textarea',
         'select'
     ],
@@ -41,23 +42,7 @@ var Elements = Backbone.Model.extend({
             value: value
         };
         console.debug(S(message).template(template_values).s);
-        element.val(value);
-        this.fireEvent(element.get(0), 'change');
-        this.fireEvent(element.get(0), 'blur');
-    },
-
-    fireEvent: function(element, event) {
-        var changeEvent = new Event(event, {
-            view: window,
-            bubbles: true,
-            cancelable: true
-        });
-        changeEvent.target = element;
-        changeEvent.currentTarget = element;
-        var canceled = !element.dispatchEvent(changeEvent);
-        if (canceled) {
-            console.log("Event " + event + " was canceled");
-        }
+        new PopulateManager().populate(element, value);
     },
 
     available: function(element) {

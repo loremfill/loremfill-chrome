@@ -18,7 +18,7 @@
                 <div id="options-container"></div>
             </div>
         </div>
-        
+
         <script type="text/html" id="options-template">
             <div class="alert alert-success hidden" role="alert">Saved successfully</div>
             <h4>Settings</h4>
@@ -33,7 +33,7 @@
                         </span>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label>E-mail Domains (comma separated)</label>
                     <div class="input-group">
@@ -44,7 +44,7 @@
                         </span>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label>Credit Card numbers (comma separated)</label>
                     <div class="input-group">
@@ -54,6 +54,14 @@
                             <button class="btn btn-default on-reset-cc" type="button">Reset</button>
                         </span>
                     </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="checkbox">
+                    <label>
+                      <input name='react' type="checkbox" <%= react ? 'checked' : '' %>> React app?
+                    </label>
+                  </div>
                 </div>
                 <p>
                     <button type="button" class="btn btn-danger submit">Save Changes</button>
