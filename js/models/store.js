@@ -4,7 +4,7 @@ var Store = Backbone.Model.extend({
             password: 'p@ssw0rd',
             domains: 'host.test, host.local, host.invalid, example.com',
             cc: '',
-            react: false
+            simulant: true
         };
     },
 
@@ -18,12 +18,12 @@ var Store = Backbone.Model.extend({
         query['password'] = this.defaults().password;
         query['domains'] = this.defaults().domains;
         query['cc'] = this.defaults().cc;
-        query['react'] = this.defaults().react;
+        query['simulant'] = this.defaults().simulant;
         chrome.storage.sync.get(query, function(item) {
             self.set('password', item.password);
             self.set('domains', item.domains);
             self.set('cc', item.cc);
-            self.set('react', item.react);
+            self.set('simulant', item.simulant);
             if(callback) {
                 callback.call(this);
             }

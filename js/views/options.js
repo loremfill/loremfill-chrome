@@ -33,12 +33,12 @@ var OptionsView = Backbone.View.extend({
         var password = this.$el.find('[name="password"]').val();
         var domains = this.$el.find('[name="domains"]').val();
         var cc = this.$el.find('[name="cc"]').val();
-        var react = this.$el.find('[name="react"]').is(':checked');
+        var simulant = this.$el.find('[name="simulant"]').is(':checked');
         var payload = {
             password: password,
             domains: domains,
             cc: cc,
-            react: react
+            simulant: simulant
         };
         console.log(payload);
         this.model.save(payload, {

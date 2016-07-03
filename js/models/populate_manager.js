@@ -1,14 +1,14 @@
 var PopulateManager = Backbone.Model.extend({
   populate: function(element, value) {
-    if (store.get('react') === true) {
-      new ReactPopulator().populate(element, value);
+    if (store.get('simulant') === true) {
+      new SimulantPopulator().populate(element, value);
     } else {
       new DefaultPopulator().populate(element, value);
     }
   }
 });
 
-var ReactPopulator = Backbone.Model.extend({
+var SimulantPopulator = Backbone.Model.extend({
   populate: function(element, value) {
     simulant.fire(element[0], simulant('focus'));
     element.val(value);
