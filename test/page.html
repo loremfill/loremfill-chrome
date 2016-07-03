@@ -13,7 +13,7 @@
     </style>
     <script type="text/javascript">
         $(document).ready(function() {
-            var inputChangeEvent = 0, inputBlurEvent = 0;
+            var inputChangeEvent = 0, inputBlurEvent = 0, inputFocusEvent = 0, inputInputEvent = 0;
             $("input, select").on('change', function() {
                 inputChangeEvent++;
                 var numberOfControls = $("input, select").size();
@@ -23,6 +23,16 @@
                 inputBlurEvent++;
                 var numberOfControls = $("input, select").size();
                 $("#onblur").text("[Total elements " + numberOfControls + "] Blur event on input & select elements = " + inputBlurEvent);
+            });
+            $("input, select").on('focus', function() {
+                inputFocusEvent++;
+                var numberOfControls = $("input, select").size();
+                $("#onfocus").text("[Total elements " + numberOfControls + "] Focus event on input & select elements = " + inputFocusEvent);
+            });
+            $("input, select").on('input', function() {
+                inputInputEvent++;
+                var numberOfControls = $("input, select").size();
+                $("#oninput").text("[Total elements " + numberOfControls + "] Input event on input & select elements = " + inputInputEvent);
             });
         });
     </script>
@@ -53,6 +63,8 @@
     CVV2: <input type="number" name="cvv2" placeholder="CVV2">
     <div id="onchange">No change event invoked</div>
     <div id="onblur">No blur event invoked</div>
+    <div id="onfocus">No focus event invoked</div>
+    <div id="oninput">No input event invoked</div>
 	<h3>IFRAME</h3>
     <iframe style="border: 1px solid #CCC;" width="100%" height="100%" frameborder="0" scrolling="yes" src="iframe.html" />
 </body>
