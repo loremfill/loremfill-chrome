@@ -31,10 +31,10 @@ var LastNameMatcher = Backbone.Model.extend({
 
 var PhoneMatcher = Backbone.Model.extend({
     supports: function(attr) {
-        return attr && (attr === 'tel' || attr.match(/phone/gi) || attr.match(/mobile/gi));
+        return attr && (attr === 'tel' || attr.match(/phone/gi) || attr.match(/mobile/gi) || attr.match(/contact/gi) || attr.match(/cellphone/gi));
     },
     value: function() {
-        return chance.phone();
+        return chance.phone({formatted: false});
     }
 });
 
