@@ -10,6 +10,15 @@ var NumberMatcher = Backbone.Model.extend({
     }
 });
 
+var YearMatcher = Backbone.Model.extend({
+    supports: function(attr) {
+        return attr && attr.match(/year/gi);
+    },
+    value: function() {
+        return chance.year();
+    }
+});
+
 var RangeMatcher = Backbone.Model.extend({
     supports: function(attr) {
         return attr && attr.match(/max/gi);

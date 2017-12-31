@@ -18,6 +18,7 @@ var MatcherFactory = Backbone.Model.extend({
         new CityMatcher,
         new ZipMatcher,
         new AddressMatcher,
+        new YearMatcher,
         new NumberMatcher,
         new RangeMatcher,
         new NullMatcher
