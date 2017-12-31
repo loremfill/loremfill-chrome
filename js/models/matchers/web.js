@@ -33,7 +33,7 @@ var UrlMatcher = Backbone.Model.extend({
         return attr && (attr.match(/web/gi) || attr.match(/url/gi));
     },
     value: function() {
-        return chance.domain();
+        return "https://" + chance.domain();
     }
 });
 
