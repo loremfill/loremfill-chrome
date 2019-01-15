@@ -20,6 +20,7 @@
     },
     "content_scripts": [
         {
+            "all_frames": true,
             "js": [
                 "js/libs/jquery-1.11.3.min.js",
                 "js/libs/underscore-min.js",
@@ -41,7 +42,7 @@
                 "js/models/store.js"
             ],
             "matches": [
-                "*://*/*"
+                "<all_urls>"
             ]
         }
     ],
