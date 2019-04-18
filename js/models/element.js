@@ -22,6 +22,9 @@ var TextStrategy = Backbone.Model.extend({
         angular: function(element) {
             return element.attr('ng-model');
         },
+        ngReflect: function(element) {
+            return element.attr('ng-reflect-name');
+        },
         type: function(element) {
             return element.attr('type');
         }
