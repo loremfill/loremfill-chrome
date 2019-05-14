@@ -1,9 +1,9 @@
-var NullMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return true;
-    },
+class NullMatcher {
+  supports = attr => {
+    return true;
+  };
 
-    value: function() {
-        return undefined;
-    }
-});
+  value = () => {
+    return undefined;
+  };
+}

@@ -1,47 +1,52 @@
-var UserNameMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && attr.match(/user/gi) && attr.match(/name/gi);
-    },
-    value: function() {
-        return chance.word();
-    }
-});
+class UserNameMatcher {
+  supports = attr => {
+    return attr && attr.match(/user/gi) && attr.match(/name/gi);
+  };
 
-var EmailMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && attr.match(/email/gi);
-    },
-    value: function() {
-        var domain = store.getRandomDomain();
-        return chance.email({
-            domain: domain
-        });
-    }
-});
+  value = () => {
+    return chance.word();
+  };
+}
 
-var PasswordMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && attr.match(/password/gi);
-    },
-    value: function() {
-        return store.getPassword();
-    }
-});
+class EmailMatcher {
+  supports = attr => {
+    return attr && attr.match(/email/gi);
+  };
 
-var UrlMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && (attr.match(/web/gi) || attr.match(/url/gi));
-    },
-    value: function() {
-        return "https://" + chance.domain();
-    }
-});
+  value = () => {
+    let domain = store.getRandomDomain();
+    return chance.email({
+      domain: domain,
+    });
+  };
+}
 
-var CaptchaMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && (attr.match(/captcha/gi) || attr.match(/challenge/gi));
-    },
-    value: function() {
-        return "";
-    }
-});
+class PasswordMatcher {
+  supports = attr => {
+    return attr && attr.match(/password/gi);
+  };
+
+  value = () => {
+    return store.getPassword();
+  };
+}
+
+class UrlMatcher {
+  supports = attr => {
+    return attr && (attr.match(/web/gi) || attr.match(/url/gi));
+  };
+
+  value = () => {
+    return 'https://' + chance.domain();
+  };
+}
+
+class CaptchaMatcher {
+  supports = attr => {
+    return attr && (attr.match(/captcha/gi) || attr.match(/challenge/gi));
+  };
+
+  value = () => {
+    return '';
+  };
+}
