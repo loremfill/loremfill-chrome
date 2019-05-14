@@ -7,6 +7,7 @@ var Elements = Backbone.Model.extend({
         'input[type="tel"]',
         'input[type="url"]',
         'input[type="phone"]',
+        'input',
         'textarea',
         'select'
     ],
