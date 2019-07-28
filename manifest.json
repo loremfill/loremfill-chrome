@@ -18,6 +18,7 @@
   },
   "content_scripts": [
     {
+      "all_frames": true,
       "js": [
         "js/libs/jquery-1.11.3.min.js",
         "js/libs/underscore-min.js",
@@ -38,7 +39,7 @@
         "js/models/matchers/factory.js",
         "js/models/store.js"
       ],
-      "matches": ["*://*/*"]
+      "matches": ["<all_urls>"]
     }
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
