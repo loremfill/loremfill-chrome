@@ -21,16 +21,16 @@ class TextStrategy {
   decide = element => {
     let factory = new MatcherFactory();
     const strategies = this.strategies();
-    for (let attribute_type in strategies) {
-      if (strategies.hasOwnProperty(attribute_type)) {
-        let value = strategies[attribute_type].call(this, element);
-        let random_value = factory.get(value).value();
-        if (random_value) {
-          return random_value;
+    for (let attributeType in strategies) {
+      if (strategies.hasOwnProperty(attributeType)) {
+        let value = strategies[attributeType].call(this, element);
+        let randomValue = factory.get(value).value();
+        if (randomValue) {
+          return randomValue;
         }
       }
     }
-    return chance.word();
+    return chance.word({length: 12});
   };
 }
 

@@ -36,13 +36,13 @@ class Elements {
     let message = '[loremfill][{{time}}] {{tagName}}[{{name}}] = {{value}}';
     let now = new Date();
     let time = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
-    let template_values = {
+    let templateValues = {
       time: time,
       tagName: element.get(0).tagName,
       name: element.attr('name'),
       value: value,
     };
-    console.debug(S(message).template(template_values).s);
+    console.debug(S(message).template(templateValues).s);
     new PopulateManager().populate(element, value);
   };
 

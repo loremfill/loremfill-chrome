@@ -4,7 +4,7 @@ class UserNameMatcher {
   };
 
   value = () => {
-    return chance.word();
+    return chance.word({length: 7});
   };
 }
 
