@@ -1,63 +1,81 @@
-var FullNameMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && attr.match(/name/gi) && !(
-            FirstNameMatcher.prototype.supports(attr) ||
-            LastNameMatcher.prototype.supports(attr)
-        );
-    },
-    value: function() {
-        return chance.name();
-    }
-});
+class FullNameMatcher {
+  supports = attr => {
+    return (
+      attr && attr.match(/name/gi) && !(new FirstNameMatcher().supports(attr) || new LastNameMatcher().supports(attr))
+    );
+  };
 
-var FirstNameMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && attr.match(/first/gi);
-    },
-    value: function() {
-        return chance.first();
-    }
-});
+  value = () => {
+    return chance.name();
+  };
+}
 
-var LastNameMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && (attr.match(/last/gi) || attr.match(/middle/gi) ||
-        attr.match(/surname/gi));
-    },
-    value: function() {
-        return chance.last();
-    }
-});
+class FirstNameMatcher {
+  supports = attr => {
+    return attr && attr.match(/first/gi);
+  };
 
-var PhoneMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && (attr === 'tel' || attr.match(/phone/gi) || attr.match(/mobile/gi) || attr.match(/contact/gi) || attr.match(/cellphone/gi));
-    },
-    value: function() {
-        return chance.phone({formatted: false});
-    }
-});
+  value = () => {
+    return chance.first();
+  };
+}
 
-var HeightMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && (attr.match(/height/gi) || attr.match(/length/gi));
-    },
-    value: function() {
-        return chance.integer({
-            min: 4,
-            max: 100
-        });
-    }
-});
+class LastNameMatcher {
+  supports = attr => {
+    return attr && (attr.match(/last/gi) || attr.match(/middle/gi) || attr.match(/surname/gi));
+  };
 
-var WeightMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && (attr.match(/weight/gi) || attr.match(/pounds/gi) || attr.match(/lbs/gi) || attr.match(/kg/gi) || attr.match(/quantity/gi));
-    },
-    value: function() {
-        return chance.integer({
-            min: 75,
-            max: 200
-        });
-    }
-});
+  value = () => {
+    return chance.last();
+  };
+}
+
+class PhoneMatcher {
+  supports = attr => {
+    return (
+      attr &&
+      (attr === 'tel' ||
+        attr.match(/phone/gi) ||
+        attr.match(/mobile/gi) ||
+        attr.match(/contact/gi) ||
+        attr.match(/cellphone/gi))
+    );
+  };
+
+  value = () => {
+    return chance.phone({ formatted: false });
+  };
+}
+
+class HeightMatcher {
+  supports = attr => {
+    return attr && (attr.match(/height/gi) || attr.match(/length/gi));
+  };
+
+  value = () => {
+    return chance.integer({
+      min: 4,
+      max: 100,
+    });
+  };
+}
+
+class WeightMatcher {
+  supports = attr => {
+    return (
+      attr &&
+      (attr.match(/weight/gi) ||
+        attr.match(/pounds/gi) ||
+        attr.match(/lbs/gi) ||
+        attr.match(/kg/gi) ||
+        attr.match(/quantity/gi))
+    );
+  };
+
+  value = () => {
+    return chance.integer({
+      min: 75,
+      max: 200,
+    });
+  };
+}

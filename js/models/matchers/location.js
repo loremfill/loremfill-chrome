@@ -1,35 +1,39 @@
-var CompanyMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && (attr.match(/company/gi) || attr.match(/business/gi) || attr.match(/organization/gi));
-    },
-    value: function() {
-        return S(chance.word()).capitalize().s + " Inc.";
-    }
-});
+class CompanyMatcher {
+  supports = attr => {
+    return attr && (attr.match(/company/gi) || attr.match(/business/gi) || attr.match(/organization/gi));
+  };
 
-var CityMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && (attr.match(/city/gi) || attr.match(/location/gi) || attr.match(/town/gi) || attr.match(/county/gi));
-    },
-    value: function() {
-        return chance.city();
-    }
-});
+  value = () => {
+    return S(chance.word()).capitalize().s + ' Inc.';
+  };
+}
 
-var ZipMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && (attr.match(/zip/gi) || attr.match(/pincode/gi) || attr.match(/zipcode/gi));
-    },
-    value: function() {
-        return chance.zip();
-    }
-});
+class CityMatcher {
+  supports = attr => {
+    return attr && (attr.match(/city/gi) || attr.match(/location/gi) || attr.match(/town/gi) || attr.match(/county/gi));
+  };
 
-var AddressMatcher = Backbone.Model.extend({
-    supports: function(attr) {
-        return attr && attr.match(/address/gi);
-    },
-    value: function() {
-        return chance.address();
-    }
-});
+  value = () => {
+    return chance.city();
+  };
+}
+
+class ZipMatcher {
+  supports = attr => {
+    return attr && (attr.match(/zip/gi) || attr.match(/pincode/gi) || attr.match(/zipcode/gi));
+  };
+
+  value = () => {
+    return chance.zip();
+  };
+}
+
+class AddressMatcher {
+  supports = attr => {
+    return attr && attr.match(/address/gi);
+  };
+
+  value = () => {
+    return chance.address();
+  };
+}
