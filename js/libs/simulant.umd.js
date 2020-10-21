@@ -399,4 +399,3 @@
 	return simulant$1;
 
 }));
-//# sourceMappingURL=simulant.umd.js.map
